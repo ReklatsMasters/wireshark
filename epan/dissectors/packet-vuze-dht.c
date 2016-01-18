@@ -166,9 +166,11 @@ static const value_string vuze_dht_flag_type_vals[] = {
 
 /* generic flag type */
 enum {
+  GF_NONE         = 0x00,
   GF_DHT_SLEEPING = 0x01
 };
 static const value_string vuze_dht_generic_flag_type_vals[] = {
+  { GF_NONE, "None"},
   { GF_DHT_SLEEPING, "DHT sleeping" },
   {0, NULL}
 };
@@ -1448,12 +1450,12 @@ proto_register_vuze_dht(void)
     { &hf_vuze_dht_generic_flags,
       { "Generic Flags", "vuze-dht.generic_flags",
       FT_UINT8, BASE_DEC,  VALS(vuze_dht_generic_flag_type_vals), 0x0,
-      NULL, HFILL }      
+      NULL, HFILL }
     },
     { &hf_vuze_dht_generic_flags2,
-      { "Generic Flags2", "vuze-dht.generic_flags2",
+      { "Generic Flags 2", "vuze-dht.generic_flags2",
       FT_UINT8, BASE_DEC,  VALS(vuze_dht_flag_type_vals), 0x0,
-      NULL, HFILL }      
+      NULL, HFILL }
     }
   };
 
@@ -1526,4 +1528,3 @@ proto_reg_handoff_vuze_dht(void)
  * ex: set shiftwidth=2 tabstop=8 expandtab:
  * :indentSize=2:tabSize=8:noTabs=true:
  */
-
